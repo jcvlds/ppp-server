@@ -20,6 +20,9 @@ app.get('/', (req, res) => {
     res.send("Welcome to the home page baby");
 })
 
+app.listen(SERVER_PORT,function(){
+    console.log("Server is listening at port :  ",SERVER_PORT);
+});
 
 
 // create Task
@@ -40,11 +43,8 @@ app.get('/', (req, res) => {
 
 
 // this wrapper is only for testing purpose
-if(!module.parent){
+// if(!module.parent){
     // staring the express server
-    app.listen(SERVER_PORT,function(){
-        console.log("Server is listening at port :  ",SERVER_PORT);
-    });
-}
+// }
 
 module.exports = app;
