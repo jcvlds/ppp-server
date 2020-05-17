@@ -2,7 +2,7 @@
   "name": "ppp-server",
   "version": "1.0.0",
   "description": "server for ppp calculator api",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "serve": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
