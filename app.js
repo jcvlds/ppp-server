@@ -6,7 +6,7 @@ var cors = require('cors');
 
 
 // Defining variables
-var SERVER_PORT = process.env.port || 5000;
+var SERVER_PORT = process.env.PORT || 5000;
 
 var app = express();
 
