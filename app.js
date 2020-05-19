@@ -18,6 +18,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
+    res.send("Welcome to the home page baby");
+})
+
+app.get('/getUsers', (req, res) => {
     // res.send("Welcome to the home page baby");
     database.connection.query('SELECT * FROM ppp_user_info', (err, rows, fields) => {
         if (!err)
