@@ -4,7 +4,8 @@
   "description": "server for ppp calculator api",
   "main": "app.js",
   "scripts": {
-    "start": "npx pm2-runtime start ecosystem.config.js",
+    "start": "node app.js",
+    "pm2": "npx pm2-runtime start ecosystem.config.js",
     "poststart": "node ./node_modules/pm2/bin/pm2 logs",
     "serve": "nodemon -r dotenv/config app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
