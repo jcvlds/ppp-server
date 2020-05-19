@@ -1,7 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-// var database = require('./app/lib/database');
+
+try {
+    var database = require('./app/lib/database');
+} catch (error) {
+    console.log(error)
+}
 // var taskController = require('./app/task/taskController');
 
 
