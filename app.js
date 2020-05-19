@@ -1,12 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var database = require('./models/db');
 
-try {
-    var database = require('./app/lib/database');
-} catch (error) {
-    console.log(error)
-}
 // var taskController = require('./app/task/taskController');
 
 
@@ -22,7 +18,30 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send("Welcome to the home page baby");
+    // res.send("Welcome to the home page baby");
+    database.connection.query('SELECT * FROM ppp_user_info', (err, rows, fields) => {
+        if (!err)
+        res.send(rows);
+        else
+        console.log(err);
+    })
+})
+
+app.post('/save', (req, res) => {
+    const clientData = req.body;
+    try {
+        database.connection.query("INSERT INTO ppp_user_info SET ?", clientData, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(err, null);
+                return;
+            }
+            console.log("created customer: ", { ...clientData });
+        });
+        res.send("Success")
+    } catch (error) {
+        res.send("Failure")
+    }
 })
 
 app.listen(SERVER_PORT,function(){
